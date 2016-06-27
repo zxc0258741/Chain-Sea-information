@@ -1,0 +1,54 @@
+package hbase;
+
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.client.HTable;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.util.Bytes;
+
+public class putimage {
+	
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		Configuration config= HBaseConfiguration.create();
+		config.set("hbase.zookeeper.qiorum", "quickstart.cloudera");
+		config.set("hbase.zookeeper.property.clientPort", "2181");
+		Put put = null;
+		HTable htable=new HTable(config,"table1");
+		File f=new File("/home/cloudera/Desktop/pic");
+		String file = "/home/cloudera/Desktop/data";
+		pic.fileTest(f);		
+		dataset.textdata(file);
+		
+		for(int i=0;i<4;i++){
+		String z = (String) dataset.list.get(i*3);
+		String x = (String) dataset.list.get(i*3+1);
+		String c = (String) dataset.list.get(i*3+2);
+		final String imgPath = (String)pic.list.get(i);
+		put =new Put(Bytes.toBytes("i"));
+		put.add(Bytes.toBytes("CF1"), Bytes.toBytes("Qualifier1"), extractBytes(imgPath));
+		put.add(Bytes.toBytes("CF1"), Bytes.toBytes("Qualifier2"), Bytes.toBytes(z));
+		put.add(Bytes.toBytes("CF1"), Bytes.toBytes("Qualifier3"), Bytes.toBytes(x));
+		put.add(Bytes.toBytes("CF1"), Bytes.toBytes("Qualifier4"), Bytes.toBytes(c));
+	}
+		htable.put(put);
+		htable.close();
+		System.out.println("finish");
+}
+	public static byte[] extractBytes(String imagePath) throws IOException {
+        File imageFile = new File(imagePath);
+        BufferedImage image = ImageIO.read(imageFile);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ImageIO.write(image, "jpg", outputStream);
+        return outputStream.toByteArray();
+    }
+
+}

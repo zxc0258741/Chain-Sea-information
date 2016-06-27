@@ -1,0 +1,32 @@
+package hbase;
+
+import java.io.IOException;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.HColumnDescriptor;
+import org.apache.hadoop.hbase.HTableDescriptor;
+import org.apache.hadoop.hbase.MasterNotRunningException;
+import org.apache.hadoop.hbase.ZooKeeperConnectionException;
+import org.apache.hadoop.hbase.client.HBaseAdmin;
+import org.apache.hadoop.hbase.util.Bytes;
+
+public class createtable {
+
+	public static void main(String[] args) throws MasterNotRunningException, ZooKeeperConnectionException, IOException  {
+		// TODO Auto-generated method stub
+		Configuration config= HBaseConfiguration.create();
+		config.set("hbase.zookeeper.qiorum", "quickstart.cloudera");
+		config.set("hbase.zookeeper.property.clientPort", "2181");
+		HBaseAdmin admin=new HBaseAdmin(config);
+		
+		HTableDescriptor tabledescriptor=new HTableDescriptor(Bytes.toBytes("table1"));
+		tabledescriptor.addFamily(new HColumnDescriptor("CF1"));
+		admin.createTable(tabledescriptor);
+		admin.close();
+		System.out.println("finish");
+
+	}
+
+}
+

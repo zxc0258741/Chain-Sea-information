@@ -1,0 +1,44 @@
+package hbase;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+public class dataset {
+		static ArrayList list;
+		
+	public static void textdata(String file) throws IOException {
+		BufferedReader buf=new BufferedReader(new FileReader(file));
+		String tempstring;
+		list=new ArrayList();
+		while((tempstring=buf.readLine()) !=null){
+		
+	    StringTokenizer tokens=new StringTokenizer(tempstring,",");
+	    for(int i = 0;i<4;i++){
+	    if(tokens.hasMoreTokens()){list.add(tokens.nextToken());}
+			}
+		}
+		
+		
+		
+		
+		
+		
+	}	
+		
+		
+		
+	public static void main(String[] args) throws IOException {
+		String file = "/home/cloudera/Desktop/data";
+		textdata(file);
+		
+		
+		
+		
+	}
+}
+
