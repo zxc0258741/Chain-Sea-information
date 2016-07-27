@@ -1,9 +1,11 @@
 作品集:
 
-hadoop 資料夾內包含練習群集安裝之文件，以及在hadoop的hdfs之下以yarn做spark-kmeans運算的練習範例，其中pig資料夾有用 hadoop pig實做的範例
+hadoop資料夾內包含練習群集安裝之文件，以及在hadoop的hdfs之下以yarn做spark-kmeans運算的練習範例，其中pig資料夾有用 hadoop pig實做的範例
 
-nosql  資料夾內包含mongodb 和 hbase的練習範例
+nosql 資料夾內包含mongodb 和 hbase的練習範例
 
-python 資料夾內 包含網路爬蟲、文字分析，以及圖片分析範例，其中圖片分析範例中的feature.py是從網路上開放的程式碼再來修改的並不是全部自己寫
+python資料夾內 包含網路爬蟲、文字分析，以及圖片分析範例，其中圖片分析範例中的feature.py是從網路上開放的程式碼再來修改的並不是全部自己寫
 的，該程式碼原來是把兩張圖片可以融合成一張新的圖片，我後來先把演算法搞懂程式碼都了解之後，改寫成單純對圖片萃取特徵值。
+
+資策會專題資料夾 1l 包含我在資策會上課期間所參與的專題製作PPT
 
