@@ -1,6 +1,6 @@
 作品集:
 
-hadoop 資料夾內包含練習群集安裝之文件，以及在hadoop的hdfs之下以yarn做spark-kmeans運算的練習範例
+hadoop 資料夾內包含練習群集安裝之文件，以及在hadoop的hdfs之下以yarn做spark-kmeans運算的練習範例，其中pig資料夾有用 hadoop pig實做的範例
 
 nosql  資料夾內包含mongodb 和 hbase的練習範例
 
